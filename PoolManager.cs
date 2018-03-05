@@ -38,12 +38,15 @@ namespace PM {
 
 		//create child in poolmanager's gameobject
 		public GameObject CreateObjectPool(string name) {
-			GameObject aux = new GameObject();
-			aux.transform.SetParent(PMInstanceScene.transform);
-			aux.SetActive(false);
-			aux.name = name;
-			gameObjects.Add(name, aux);
-			return aux;
+			if (gameObjects.ContainsKey(name)) return GetObjectPool(name);
+			else {
+				GameObject aux = new GameObject();
+				aux.transform.SetParent(PMInstanceScene.transform);
+				aux.SetActive(false);
+				aux.name = name;
+				gameObjects.Add(name, aux);
+				return aux;
+			}
 		}
 
 		public GameObject GetObjectPool(string name) {
@@ -59,6 +62,5 @@ namespace PM {
 				return instance;
 			}
 		}
-
 	}
 }
