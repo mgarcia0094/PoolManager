@@ -25,8 +25,4 @@ public class ExamplePool : MonoBehaviour {
 		Debug.Log("ObjectPool guardado");
 		poolObject.Store(aux);
     }
-	
-	// Update is called once per frame
-	void Update () {
-	}
 }
